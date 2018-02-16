@@ -4,11 +4,6 @@ library(shiny)
 library(plotly)
 library(d3heatmap)
 library(shinyjs)
-library("motifbreakR")
-library("openxlsx")
-library("SNPlocs.Hsapiens.dbSNP142.GRCh37")
-library("BSgenome.Hsapiens.UCSC.hg19")
-library("MotifDb")
 
 dashboardPage(
   dashboardHeader(title = "GWAS-eQTL",titleWidth = 300),

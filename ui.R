@@ -11,7 +11,7 @@ library("BSgenome.Hsapiens.UCSC.hg19")
 library("MotifDb")
 
 dashboardPage(
-  dashboardHeader(title = "STAR summary",titleWidth = 300),
+  dashboardHeader(title = "GWAS-eQTL",titleWidth = 300),
   dashboardSidebar(width = 300,
                    div(style="overflow-y: scroll"),
                    tags$head(tags$style(HTML(".sidebar { height: 90vh; overflow-y: auto; }" ))),
@@ -30,11 +30,18 @@ dashboardPage(
       tabItem(tabName = "dashboard",
               box(
                 width = 12, status = "primary",solidHeader = TRUE,
-                title = "SNP list",DT::dataTableOutput('rsid')
+                fluidRow(
+                  column(6,uiOutput("dwldgenelist")),
+                  column(6,uiOutput("dwldsnplist"))
+                )
               ),
               box(
                 width = 12, status = "primary",solidHeader = TRUE,
-                title = "Motifbreaker results",DT::dataTableOutput('res'),plotOutput('img')
+                title = "Gene list",DT::dataTableOutput('genelist')
+              ),
+              box(
+                width = 12, status = "primary",solidHeader = TRUE,
+                title = "SNP list",DT::dataTableOutput('snps')
               )
       )
       )))
